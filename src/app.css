@@ -1,3 +1,11 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+hr {
+    @apply rounded-full h-0 border-2 border-gray-300 opacity-95
+}
+
+a {
+    @apply underline hover:text-blue-300 focus:text-blue-300
+}
