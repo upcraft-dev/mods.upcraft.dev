@@ -1,21 +1,24 @@
-ARG NODE_VERSION=20
-FROM node:${NODE_VERSION}-alpine AS base
+ARG NODE_VERSION=26
+ARG PNPM_VERSION=12
+FROM ghcr.io/pnpm/pnpm:${PNPM_VERSION} AS base
+ARG NODE_VERSION
+RUN pnpm runtime set node ${NODE_VERSION} -g
+
+WORKDIR /app
 
 RUN ulimit -c unlimited
 
 FROM base AS build
 
-WORKDIR /app
+COPY package.json pnpm-lock.yaml ./
 
-COPY package*.json .
-
-RUN npm ci
+RUN pnpm ci
 
 COPY . .
 
-RUN npm run build
+RUN pnpm run build
 
-RUN npm prune --omit=dev
+RUN pnpm prune --omit=dev
 
 FROM base AS deploy
 ARG NODE_ENV=production

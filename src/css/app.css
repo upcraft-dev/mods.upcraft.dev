@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+a {
+	@apply underline hover:text-blue-300 focus:text-blue-300;
+}
+
+h1 {
+	@apply text-3xl font-bold;
+}
+
+h2 {
+	@apply text-2xl font-bold;
+}
+
+h3 {
+	@apply text-xl font-bold;
+}
+
+hr {
+	@apply h-0 rounded-full border-2 border-gray-300 opacity-95;
+}
+
+samp {
+	@apply font-mono;
+}

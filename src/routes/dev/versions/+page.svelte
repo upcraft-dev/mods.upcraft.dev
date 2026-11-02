@@ -1,5 +1,5 @@
 <script lang="ts">
-	import VersionCard from '$components/VersionCard.svelte';
+	import VersionCard from '#components/VersionCard';
 	import type { PageData } from './$types';
 
     export let data: PageData;
