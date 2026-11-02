@@ -18,7 +18,7 @@ COPY . .
 
 RUN pnpm run build
 
-RUN pnpm prune --omit=dev
+RUN pnpm prune --prod
 
 FROM base AS deploy
 ARG NODE_ENV=production
